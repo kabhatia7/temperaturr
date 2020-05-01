@@ -27,12 +27,14 @@ get_celsius <- function(fah)
 #' @export
 get_prev_temp <- function(latitude, longitude, num_days = 7, api_key)
 {
+  selection <- 1
   if(num_days > 14)
   {
-    warning('Choose a smaller number of days!')
-    return()
+  selection <- readline(prompt = "You only have so many queries to this api are, are you sure you want to continue?\n 1: Yes \n 2: No")
+  selection <- as.integer(selection)
   }
-  else
+
+  if(num_data < 14 | selection == 1)
   {
     full_data = data.frame()
     one_day = 86400
@@ -70,5 +72,8 @@ get_prev_temp <- function(latitude, longitude, num_days = 7, api_key)
         arrange(observation_time)
     }
     return(full_data)
+  }
+  else{
+    return()
   }
 }
