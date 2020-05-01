@@ -5,20 +5,18 @@
 #' @param api_key The key for the api
 
 #'
+#' @importFrom httr GET
+#' @importFrom jsonlite fromJSON
+#' @importFrom tidyverse arrange rename tibble
+#' @importFrom lubridate format_ISO8601 now as_datetime
+#'
 #' @return A data set with weather information between today and tommorow and the diffrences by hour
 #' @export
 #'
-library(httr)
-library(jsonlite)
-library(tidyverse)
-library(lubridate)
 
-get_celsius <- function(fah)
-{
-  return(round(((fah - 32) * 5 / 9), digits = 2))
-}
 
-Weather_Comparison <- function(latitude, longitude, api_key)
+
+weather_comparison <- function(latitude, longitude, api_key)
 {
   next_day = data.frame()
   one_day = 86400*2.3 # number of seconds per day
@@ -72,3 +70,9 @@ Weather_Comparison <- function(latitude, longitude, api_key)
 }
 
 #x =Weather_Comparison(35.2828, -120.6596, "keKglY8JGUawtl9Roz00cFDxokssxVpA")
+
+
+get_celsius <- function(fah)
+{
+  return(round(((fah - 32) * 5 / 9), digits = 2))
+}
