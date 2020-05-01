@@ -15,6 +15,7 @@ get_celsius <- function(fah)
 #' @param latitude The latitude of the location
 #' @param longitude The longitude of the location
 #' @param num_days The number of days viewed
+#' @param api_key The key for the api
 #'
 #' @return A data frame of temperatures with dates (possibly a warning)
 #'
@@ -24,7 +25,7 @@ get_celsius <- function(fah)
 #' @importFrom lubridate format_ISO8601 now as_datetime year month day
 #'
 #' @export
-get_prev_temp <- function(latitude, longitude, num_days = 7)
+get_prev_temp <- function(latitude, longitude, num_days = 7, api_key)
 {
   if(num_days > 14)
   {
@@ -49,7 +50,7 @@ get_prev_temp <- function(latitude, longitude, num_days = 7)
                         unit_system = "us",
                         start_time = glue::glue("{x}"),
                         end_time = glue::glue("{y}"),
-                        apikey = "keKglY8JGUawtl9Roz00cFDxokssxVpA"))
+                        apikey = api_key))
 
       curr_data <- fromJSON(rawToChar(curr_day$content))
       obs_time <- curr_data$observation_time %>%
