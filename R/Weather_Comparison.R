@@ -1,22 +1,18 @@
 #' Gives a Data Set of Weather Data for Today(The Upcoming 24 hours ) and Tommorow(The Following 24 hours) with the diffrences between the two days included as well .
 #'
-#' @param latitude The latitude of the location
-#' @param longitude The longitude of the location
-#' @param api_key The key for the api
-
-#'
 #' @importFrom httr GET
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr arrange rename
 #' @importFrom lubridate format_ISO8601 now as_datetime
 #' @importFrom tibble tibble
+#'
+#' @param latitude The latitude of the location, default stored in environment by find_loc function
+#' @param longitude The longitude of the location, default stored in environment by find_loc function
+#' @param api_key The key for the api, default stored in environment by register_climacell_key function
+#'
 #' @return A data set with weather information between today and tommorow and the diffrences by hour
 #' @export
-#'
-
-
-
-weather_comparison <- function(latitude, longitude, api_key)
+weather_comparison <- function(latitude = lat, longitude = lon, api_key = apikey)
 {
   next_day = data.frame()
   one_day = 86400*2.3 # number of seconds per day

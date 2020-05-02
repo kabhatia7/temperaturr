@@ -4,16 +4,16 @@
 #' @importFrom ggplot2 ggplot geom_line scale_linetype_manual scale_color_manual theme ggtitle
 #'
 #'
-#' @param latitude latitudinal coordinate of the location
-#' @param longitude longitudinal coordinate of the location
+#' @param latitude latitudinal coordinate of the location, default stored in environment by find_loc function
+#' @param longitude longitudinal coordinate of the location, default stored in environment by find_loc function
 #' @param num_days Number of days of past weather to be viewed
-#' @param CF C for Celsius F for fahrenheit
-#' @param api_key climacell.io API Key
+#' @param CF C for Celsius F for Fahrenheit
+#' @param api_key climacell.io API Key, default stored in environment by register_climacell_key function
 #'
 #' @return plot of temp from the past days
 #'
 #' @export
-plot_weather <- function(latitude , longitude, num_days, CF, api_key) {
+plot_weather <- function(latitude = lat , longitude = lon, num_days, CF, api_key = apikey) {
 
   weather_data <- radius(latitude, longitude, num_days, api_key)
 
