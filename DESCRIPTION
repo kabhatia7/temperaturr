@@ -1,12 +1,24 @@
 Package: temperaturr
-Title: What the Package Does (One Line, Title Case)
+Title: Learn more about the weather
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    c(person(given = "Karan",
+           family = "Bhatia",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "kabhatia7@gmail.com"),
+    person(given = "Joshua",
+           family = "Kim",
+           role = c("aut"),
+           email = "example@gmail.com"),
+    person(given = "Delaney",
+           family = "Oliver",
+           role = c("aut"),
+           email = "dcoliver@calpoly.edu"),
+    person(given = "Marco",
+           family = "Bostrom",
+           role = c("aut"),
+           email = "kabhatia7@gmail.com")
+           )
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
