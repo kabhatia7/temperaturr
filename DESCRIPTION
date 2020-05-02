@@ -9,15 +9,15 @@ Authors@R:
     person(given = "Joshua",
            family = "Kim",
            role = c("aut"),
-           email = "joshuakim999@gmail.com"),
+           email = "example@gmail.com"),
     person(given = "Delaney",
            family = "Oliver",
            role = c("aut"),
-           email = "example@gmail.com"),
+           email = "dcoliver@calpoly.edu"),
     person(given = "Marco",
            family = "Bostrom",
            role = c("aut"),
-           email = "kabhatia7@gmail.com")
+           email = "example@gmail.com")
            )
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
