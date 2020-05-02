@@ -29,6 +29,7 @@ register_climacell_key <- function(apikey){
 #' @param google_apikey Your google API key for geocoding as a string. Follow instructions from link above.
 #' @param location The location you would like to set the lat/lon for all other functions passed as string. Be as specific as possible
 #'
+#' @export
 find_loc <- function(google_apikey, location){
 
   register_google(key = google_apikey)

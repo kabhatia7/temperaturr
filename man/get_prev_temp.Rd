@@ -16,7 +16,7 @@ get_prev_temp(latitude, longitude, num_days = 7, api_key)
 \item{api_key}{The key for the api}
 }
 \value{
-A data frame of temperatures with dates (possibly a warning)
+A data frame of temperatures with dates and observation times in UTC(possibly a warning)
 }
 \description{
 Gives the temperatures of a given location for a given number of days

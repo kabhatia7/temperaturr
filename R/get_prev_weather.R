@@ -21,9 +21,9 @@ get_celsius <- function(fah)
 #'
 #' @importFrom httr GET
 #' @importFrom jsonlite fromJSON
-#' @importFrom tidyverse %>% tibble mutate pull arrange
+#' @importFrom dplyr mutate pull arrange
 #' @importFrom lubridate format_ISO8601 now as_datetime year month day
-#'
+#' @importFrom tibble tibble
 #' @export
 get_prev_temp <- function(latitude, longitude, num_days = 7, api_key)
 {

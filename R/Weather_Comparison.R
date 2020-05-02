@@ -7,9 +7,9 @@
 #'
 #' @importFrom httr GET
 #' @importFrom jsonlite fromJSON
-#' @importFrom tidyverse arrange rename tibble
+#' @importFrom dplyr arrange rename
 #' @importFrom lubridate format_ISO8601 now as_datetime
-#'
+#' @importFrom tibble tibble
 #' @return A data set with weather information between today and tommorow and the diffrences by hour
 #' @export
 #'
