@@ -34,7 +34,7 @@ get_prev_temp <- function(latitude = lat, longitude = lon, num_days = 7, api_key
   selection <- as.integer(selection)
   }
 
-  if(num_data < 14 | selection == 1)
+  if(num_days < 14 | selection == 1)
   {
     full_data = data.frame()
     one_day = 86400
