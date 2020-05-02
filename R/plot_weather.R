@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 #helper function to make data frame with radius around lat and lng
 radius <- function(latitude, longitude, num_days, api_key){
@@ -18,6 +19,23 @@ radius <- function(latitude, longitude, num_days, api_key){
 
 
 plot_weather <- function(latitude, longitude, num_days, CF, api_key) {
+=======
+#' Uses data pulled from the API to generate a plot of the weather for the past number of user inputted days
+#'
+#'
+#' @importFrom ggplot2 ggplot geom_line scale_linetype_manual scale_color_manual theme ggtitle
+#'
+#' @param latitude x
+#' @param longitude x
+#' @param num_days x
+#' @param CF x
+#' @param api_key x
+#'
+#' @return plot of temp from the past days
+#'
+#' @export
+plot_weather <- function(latitude , longitude, num_days, CF, api_key) {
+>>>>>>> Stashed changes
 
   weather_data <- radius(latitude, longitude, num_days, api_key)
 
@@ -37,4 +55,40 @@ plot_weather <- function(latitude, longitude, num_days, CF, api_key) {
     theme(plot.subtitle = element_text(face = "italic"))
 
 
+<<<<<<< Updated upstream
+=======
+#' creates dataframe for use for the plot weather function
+#'
+#'
+#' @importFrom dplyr mutate
+#' @param latitude x
+#' @param longitude x
+#' @param num_days x
+#' @param api_key x
+#'
+#' @return a dataframe
+
+
+radius <- function(latitude, longitude, num_days, api_key){
+
+  original <- get_prev_temp(latitude, longitude, num_days, api_key) %>%
+    mutate(point = "0")
+
+  lat_1 <-get_prev_temp(latitude+1, longitude, num_days, api_key) %>%
+    mutate(point = "+1_0")
+
+  lat_neg1 <-get_prev_temp(latitude-1, longitude, num_days, api_key) %>%
+    mutate(point = "-1_0")
+
+  lng_1 <- get_prev_temp(latitude, longitude +1, num_days, api_key) %>%
+    mutate(point = "0_+1")
+
+  lng_neg1 <- get_prev_temp(latitude, longitude-1, num_days, api_key) %>%
+    mutate(point = "0_-1")
+
+  radius_data <- rbind(original, lat_1, lat_neg1, lng_1, lng_neg1)
+
+  return(radius_data)
+}
+>>>>>>> Stashed changes
 
