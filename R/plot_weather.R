@@ -36,5 +36,4 @@ plot_weather <- function(latitude, longitude, num_days, CF, api_key) {
                        labels = c("Lattitude -1", "Latitude +1", "Entered Point", "Longitude -1", "Longitude +1")) +
     theme(plot.subtitle = element_text(face = "italic"))
 
-
-
+}
