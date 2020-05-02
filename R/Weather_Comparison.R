@@ -21,8 +21,8 @@ weather_comparison <- function(latitude, longitude, api_key)
   next_day = data.frame()
   one_day = 86400*2.3 # number of seconds per day
 
-  for(i in 1)
-  {
+#  for(i in 1)
+#  {
     y <- as.character(format_ISO8601(now() + one_day))
 
     curr_day <- GET("https://api.climacell.co/v3/weather/forecast/hourly?unit_system=si&start_time=now",
@@ -65,7 +65,7 @@ weather_comparison <- function(latitude, longitude, api_key)
 
       )
 
-  }
+# }
   return(tommorow)
 }
 
