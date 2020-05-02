@@ -23,7 +23,7 @@ weather_comparison <- function(latitude, longitude, api_key)
 
 #  for(i in 1)
 #  {
-    y <- as.character(format_ISO8601(now() + one_day))
+    today <- as.character(format_ISO8601(now() + one_day))
 
     curr_day <- GET("https://api.climacell.co/v3/weather/forecast/hourly?unit_system=si&start_time=now",
                     query= list(
@@ -31,7 +31,7 @@ weather_comparison <- function(latitude, longitude, api_key)
                       lon = longitude,
                       fields = "temp",
                       unit_system = "us",
-                      end_time = glue::glue("{y}"),
+                      end_time = glue::glue("{today}"),
                       apikey = api_key))
 
     curr_data <- fromJSON(rawToChar(curr_day$content))
