@@ -17,7 +17,7 @@ get_celsius <- function(fah)
 #' @param num_days The number of days viewed
 #' @param api_key The key for the api
 #'
-#' @return A data frame of temperatures with dates (possibly a warning)
+#' @return A data frame of temperatures with dates and observation times in UTC(possibly a warning)
 #'
 #' @importFrom httr GET
 #' @importFrom jsonlite fromJSON
