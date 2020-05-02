@@ -1,21 +1,18 @@
-
-
 #' Uses data pulled from the API to generate a plot of the weather for the past number of user inputted days
 #'
 #'
 #' @importFrom ggplot2 ggplot geom_line scale_linetype_manual scale_color_manual theme ggtitle
 #'
-#' @param latitude
-#' @param longitude
-#' @param num_days
-#' @param CF
-#' @param api_key
+#'
+#' @param latitude latitudinal coordinate of the location
+#' @param longitude longitudinal coordinate of the location
+#' @param num_days Number of days of past weather to be viewed
+#' @param CF C for Celsius F for fahrenheit
+#' @param api_key climacell.io API Key
 #'
 #' @return plot of temp from the past days
 #'
 #' @export
-
-
 plot_weather <- function(latitude , longitude, num_days, CF, api_key) {
 
   weather_data <- radius(latitude, longitude, num_days, api_key)
@@ -46,10 +43,11 @@ plot_weather <- function(latitude , longitude, num_days, CF, api_key) {
 
 #' creates dataframe for use for the plot weather function
 #'
-#' @param latitude
-#' @param longitude
-#' @param num_days
-#' @api_key
+#'
+#' @param latitude latitudinal coordinate of the location
+#' @param longitude longitudinal coordinate of the location
+#' @param num_days Number of days of past weather to be viewed
+#' @param api_key climacell.io API Key
 #'
 #' @return a dataframe
 
