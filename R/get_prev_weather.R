@@ -12,27 +12,29 @@ get_celsius <- function(fah)
 
 #' Gives the temperatures of a given location for a given number of days
 #'
-#' @param latitude The latitude of the location
-#' @param longitude The longitude of the location
+#' @param latitude The latitude of the location, default stored in environment by find_loc function
+#' @param longitude The longitude of the location, default stored in environment by find_loc function
 #' @param num_days The number of days viewed
-#' @param api_key The key for the api
+#' @param api_key The key for the api, default stored in environment by register_climacell_key function
 #'
 #' @return A data frame of temperatures with dates and observation times in UTC(possibly a warning)
 #'
 #' @importFrom httr GET
 #' @importFrom jsonlite fromJSON
-#' @importFrom tidyverse %>% tibble mutate pull arrange
+#' @importFrom dplyr mutate pull arrange
 #' @importFrom lubridate format_ISO8601 now as_datetime year month day
-#'
+#' @importFrom tibble tibble
 #' @export
-get_prev_temp <- function(latitude, longitude, num_days = 7, api_key)
+get_prev_temp <- function(latitude = lat, longitude = lon, num_days = 7, api_key = apikey)
 {
+  selection <- 1
   if(num_days > 14)
   {
-    warning('Choose a smaller number of days!')
-    return()
+  selection <- readline(prompt = "You only have so many queries to this api are, are you sure you want to continue?\n 1: Yes \n 2: No")
+  selection <- as.integer(selection)
   }
-  else
+
+  if(num_data < 14 | selection == 1)
   {
     full_data = data.frame()
     one_day = 86400
@@ -70,5 +72,8 @@ get_prev_temp <- function(latitude, longitude, num_days = 7, api_key)
         arrange(observation_time)
     }
     return(full_data)
+  }
+  else{
+    return()
   }
 }
