@@ -31,8 +31,7 @@ Suggests:
 Imports: 
     magrittr, 
     dplyr, 
-    gmap, 
-    ggplot2
+    ggplot2, 
     httr, 
     jsonlite, 
     lubridate,
