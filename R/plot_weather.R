@@ -1,7 +1,7 @@
 #' Uses data pulled from the API to generate a plot of the weather for the past number of user inputted days
 #'
 #'
-#' @importFrom ggplot2 ggplot geom_line scale_linetype_manual scale_color_manual theme ggtitle
+#' @importFrom ggplot2 ggplot geom_line scale_color_manual theme ggtitle
 #'
 #'
 #' @param latitude latitudinal coordinate of the location, default stored in environment by find_loc function
@@ -29,9 +29,6 @@ plot_weather <- function(latitude = lat , longitude = lon, num_days, CF, api_key
       paste("Last Week's Weather at Latitude: ", latitude, ", Longitude: ", longitude, sep = ""),
       subtitle ="Weather based on radius of +/-1 on both the Latitude and Longitude"
     ) +
-
-    scale_linetype_manual(values=c("dotted", "dotted", "solid", "dotted", "dotted")) +
-
     scale_color_manual(
       values=c("#B27EB7","#E39AEB","#5E5CC4" , "#88B77E", "#A4E298"),
       labels = c("Lattitude -1", "Latitude +1", "Entered Point", "Longitude -1", "Longitude +1")
