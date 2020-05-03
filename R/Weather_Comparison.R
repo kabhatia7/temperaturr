@@ -17,9 +17,9 @@ weather_comparison <- function(latitude = lat, longitude = lon, api_key = apikey
   next_day = data.frame()
   one_day = 86400*2.3 # number of seconds per day
 
-  for(i in 1)
-  {
-    y <- as.character(format_ISO8601(now() + one_day))
+#  for(i in 1)
+#  {
+    today <- as.character(format_ISO8601(now() + one_day))
 
     curr_day <- GET("https://api.climacell.co/v3/weather/forecast/hourly?unit_system=si&start_time=now",
                     query= list(
@@ -27,7 +27,7 @@ weather_comparison <- function(latitude = lat, longitude = lon, api_key = apikey
                       lon = longitude,
                       fields = "temp",
                       unit_system = "us",
-                      end_time = glue::glue("{y}"),
+                      end_time = glue::glue("{today}"),
                       apikey = api_key))
 
     curr_data <- fromJSON(rawToChar(curr_day$content))
@@ -37,7 +37,7 @@ weather_comparison <- function(latitude = lat, longitude = lon, api_key = apikey
 
     value <- curr_data$temp$value
     value_in_C = sapply(value, get_celsius)
-    curr_data_table = tibble(observation_time = as_datetime(-25200,obs_time),
+    curr_data_table = tibble(observation_time = change_timezone(-25200, obs_time),
                              temp_in_F = value,
                              temp_in_C = value_in_C)
 
@@ -61,7 +61,7 @@ weather_comparison <- function(latitude = lat, longitude = lon, api_key = apikey
 
       )
 
-  }
+# }
   return(tommorow)
 }
 
@@ -71,4 +71,8 @@ weather_comparison <- function(latitude = lat, longitude = lon, api_key = apikey
 get_celsius <- function(fah)
 {
   return(round(((fah - 32) * 5 / 9), digits = 2))
+}
+change_timezone <- function(time_diff, data)
+  {
+  return(as_datetime(time_diff, data))
 }

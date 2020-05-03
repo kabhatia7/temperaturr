@@ -4,14 +4,14 @@
 \alias{weather_comparison}
 \title{Gives a Data Set of Weather Data for Today(The Upcoming 24 hours ) and Tommorow(The Following 24 hours) with the diffrences between the two days included as well .}
 \usage{
-weather_comparison(latitude, longitude, api_key)
+weather_comparison(latitude = lat, longitude = lon, api_key = apikey)
 }
 \arguments{
-\item{latitude}{The latitude of the location}
+\item{latitude}{The latitude of the location, default stored in environment by find_loc function}
 
-\item{longitude}{The longitude of the location}
+\item{longitude}{The longitude of the location, default stored in environment by find_loc function}
 
-\item{api_key}{The key for the api}
+\item{api_key}{The key for the api, default stored in environment by register_climacell_key function}
 }
 \value{
 A data set with weather information between today and tommorow and the diffrences by hour

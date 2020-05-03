@@ -10,7 +10,7 @@
 
 register_climacell_key <- function(apikey){
 
-  stopifnot(api != '')
+  stopifnot(apikey != '')
 
   assign("apikey", apikey, envir = globalenv())
 
@@ -21,18 +21,17 @@ register_climacell_key <- function(apikey){
 #' Sets as default in your environmnet for all other functions in this package
 #' required a google API Key.
 #' Keys have a free trial period and can be acquired at https://developers.google.com/maps/documentation/geocoding/get-api-key
+#' Use the ggmap register_google(key) function to register your key  with your R session
 #'
-#' @importFrom ggmap register_google geocode
+#'
+#' @importFrom ggmap geocode
 #' @importFrom tibble tibble
 #' @importFrom dplyr pull
 #'
-#' @param google_apikey Your google API key for geocoding as a string. Follow instructions from link above.
 #' @param location The location you would like to set the lat/lon for all other functions passed as string. Be as specific as possible
 #'
 #' @export
-find_loc <- function(google_apikey, location){
-
-  register_google(key = google_apikey)
+find_loc <- function(location){
 
   cords <- geocode(location)
 
