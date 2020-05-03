@@ -1,6 +1,6 @@
 test_that("testing get_prev_weather", {
 
-  correct_result_row <- 288
+  correct_result_row <- 286
   correct_result_col <- 6
 
   my_result <- get_prev_temp(35.2828, -120.6596, 2, "keKglY8JGUawtl9Roz00cFDxokssxVpA")
