@@ -29,4 +29,11 @@ RoxygenNote: 7.1.0
 Suggests: 
     testthat
 Imports: 
-    magrittr
+    magrittr, 
+    ggmap,
+    dplyr, 
+    ggplot2, 
+    httr, 
+    jsonlite, 
+    lubridate,
+    tibble

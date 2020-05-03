@@ -4,16 +4,16 @@
 \alias{get_prev_temp}
 \title{Gives the temperatures of a given location for a given number of days}
 \usage{
-get_prev_temp(latitude, longitude, num_days = 7, api_key)
+get_prev_temp(latitude = lat, longitude = lon, num_days = 7, api_key = apikey)
 }
 \arguments{
-\item{latitude}{The latitude of the location}
+\item{latitude}{The latitude of the location, default stored in environment by find_loc function}
 
-\item{longitude}{The longitude of the location}
+\item{longitude}{The longitude of the location, default stored in environment by find_loc function}
 
 \item{num_days}{The number of days viewed}
 
-\item{api_key}{The key for the api}
+\item{api_key}{The key for the api, default stored in environment by register_climacell_key function}
 }
 \value{
 A data frame of temperatures with dates and observation times in UTC(possibly a warning)

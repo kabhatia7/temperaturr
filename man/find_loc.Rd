@@ -5,13 +5,12 @@
 \title{Uses googlemap geocoding API to find the lat/lon of the location that would analyze whether for
 Sets as default in your environmnet for all other functions in this package
 required a google API Key.
-Keys have a free trial period and can be acquired at https://developers.google.com/maps/documentation/geocoding/get-api-key}
+Keys have a free trial period and can be acquired at https://developers.google.com/maps/documentation/geocoding/get-api-key
+Use the ggmap register_google(key) function to register your key  with your R session}
 \usage{
-find_loc(google_apikey, location)
+find_loc(location)
 }
 \arguments{
-\item{google_apikey}{Your google API key for geocoding as a string. Follow instructions from link above.}
-
 \item{location}{The location you would like to set the lat/lon for all other functions passed as string. Be as specific as possible}
 }
 \description{
@@ -19,4 +18,5 @@ Uses googlemap geocoding API to find the lat/lon of the location that would anal
 Sets as default in your environmnet for all other functions in this package
 required a google API Key.
 Keys have a free trial period and can be acquired at https://developers.google.com/maps/documentation/geocoding/get-api-key
+Use the ggmap register_google(key) function to register your key  with your R session
 }
