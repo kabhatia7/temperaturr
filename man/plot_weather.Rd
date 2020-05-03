@@ -4,7 +4,17 @@
 \alias{plot_weather}
 \title{Uses data pulled from the API to generate a plot of the weather for the past number of user inputted days}
 \usage{
+<<<<<<< Updated upstream
 plot_weather(latitude, longitude, num_days, CF, api_key)
+=======
+plot_weather(
+  latitude = lat,
+  longitude = lon,
+  num_days,
+  CF = "F",
+  api_key = apikey
+)
+>>>>>>> Stashed changes
 }
 \arguments{
 \item{latitude}{latitudinal coordinate of the location}
@@ -13,7 +23,11 @@ plot_weather(latitude, longitude, num_days, CF, api_key)
 
 \item{num_days}{Number of days of past weather to be viewed}
 
+<<<<<<< Updated upstream
 \item{CF}{C for Celsius F for fahrenheit}
+=======
+\item{CF}{C for Celsius F for Fahrenheit; default set to "F"}
+>>>>>>> Stashed changes
 
 \item{api_key}{climacell.io API Key}
 }
