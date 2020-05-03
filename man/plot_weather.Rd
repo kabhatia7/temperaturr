@@ -4,18 +4,18 @@
 \alias{plot_weather}
 \title{Uses data pulled from the API to generate a plot of the weather for the past number of user inputted days}
 \usage{
-plot_weather(latitude, longitude, num_days, CF, api_key)
+plot_weather(latitude = lat, longitude = lon, num_days, CF, api_key = apikey)
 }
 \arguments{
-\item{latitude}{latitudinal coordinate of the location}
+\item{latitude}{latitudinal coordinate of the location, default stored in environment by find_loc function}
 
-\item{longitude}{longitudinal coordinate of the location}
+\item{longitude}{longitudinal coordinate of the location, default stored in environment by find_loc function}
 
 \item{num_days}{Number of days of past weather to be viewed}
 
-\item{CF}{C for Celsius F for fahrenheit}
+\item{CF}{C for Celsius F for Fahrenheit}
 
-\item{api_key}{climacell.io API Key}
+\item{api_key}{climacell.io API Key, default stored in environment by register_climacell_key function}
 }
 \value{
 plot of temp from the past days
