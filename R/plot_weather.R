@@ -2,7 +2,7 @@
 #'
 #'
 #' @importFrom ggplot2 ggplot geom_line scale_linetype_manual scale_color_manual theme ggtitle
-#'
+#' @importFrom dplyr mutate
 #'
 #' @param latitude latitudinal coordinate of the location
 #' @param longitude longitudinal coordinate of the location
@@ -43,6 +43,7 @@ plot_weather <- function(latitude , longitude, num_days, CF, api_key) {
 
 #' creates dataframe for use for the plot weather function
 #'
+#' @importFrom dplyr mutate
 #'
 #' @param latitude latitudinal coordinate of the location
 #' @param longitude longitudinal coordinate of the location

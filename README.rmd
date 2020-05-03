@@ -1,0 +1,87 @@
+---
+title: "temperaturr"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+The temperaturr package uses the climacell and google maps geocoding APIs to tell you about the weather by providing data frames and plots of the weather from certain locations. 
+
+## Setup & Installation
+
+First things first we're gonna need to install the development version of the package from [Github](https://github.com/) with:
+
+```r
+# install.packages("devtools")
+devtools::install_github("kabhatia7/temperaturr")
+```
+
+
+```{r}
+library(temperaturr)
+```
+
+
+
+Next we need to get setup with API Keys. The first one for climacell is very easy to get set up just click this [link](https://developer.climacell.co/sign-up) to sign up for a free climacell key. Then to store your key as in your global environment to be used for all functions in the `temperaturr` package
+
+I will be reading in our keys from a JSON file as they should not be used by more than one person.
+
+```{r}
+register_climacell_key(apikey = jsonlite::read_json("C:/Users/Karan Bhatia/Desktop/keys/keys.json")$climacell)
+```
+
+
+The free version gives us 1000 calls a day and which for the purposes of this package should be more than enough. The next key you're going to want to get is the Google API for geocoding. This key will make it so you don't have to always look up your location of interest by simply passing the name of the location of interest. We will use the ggmap package to register our google key with the `register_google()` function. Instructions for a google key can be found [here](https://developers.google.com/maps/documentation/geocoding/get-api-key).  
+
+
+```{r}
+#install.packages(ggmap)
+library(ggmap)
+register_google(key = jsonlite::read_json("C:/Users/Karan Bhatia/Desktop/keys/keys.json")$google)
+```
+
+
+
+Then you can set your location through the `find_loc()` function so you wont have to pass any of the lat and lon arguments for the functions. Try to be as specific as possible by adding state names or zip codes since google will always pick the first result it searches for if there are conflicts. 
+
+```{r}
+find_loc("San Luis Obispo, CA")
+```
+
+
+Now we're all set to use the package! 
+
+
+
+## Retrieving a temperaturr data frame
+
+```{r}
+get_prev_temp() %>% 
+  head()
+```
+
+
+
+## Hourly comparison of today and day before in a dataframe
+
+```{r}
+library(dplyr)
+weather_comparison() %>% 
+  head() %>% 
+  select(Day1_Times, Day1_Temp_in_F,Day2_Times, Day2_Temp_in_F, Diffrence_in_F)
+```
+
+
+## Plot the weather patterns for the past week
+
+```{r}
+plot_weather(CF = "F", num_days = 7)
+```
+
