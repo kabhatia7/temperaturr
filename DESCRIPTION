@@ -19,9 +19,8 @@ Authors@R:
            role = c("aut"),
            email = "kabhatia7@gmail.com")
            )
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Description: The R package temperaturr is an api package that uses the climacell API to give you all the information you could ever need about temperature in any area you wish for. The package has 3 main functionalities and a pair of functions to streamline use of the package. The main functions allow you to see the previous weather for a given area, plot the weather patterns in a given area from the past few days, and compare weather data from the day before and today.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -36,4 +35,5 @@ Imports:
     httr, 
     jsonlite, 
     lubridate,
-    tibble
+    tibble, 
+    glue
