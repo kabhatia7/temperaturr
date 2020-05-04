@@ -4,8 +4,6 @@
 \alias{plot_weather}
 \title{Uses data pulled from the API to generate a plot of the weather for the past number of user inputted days}
 \usage{
-  
-plot_weather(latitude, longitude, num_days, CF, api_key)
 plot_weather(
   latitude = lat,
   longitude = lon,
