@@ -14,5 +14,4 @@ test_that("testing plot_weather", {
 
   expect_equal(is.ggplot(my_result), TRUE)
 
-
 })
