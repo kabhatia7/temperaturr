@@ -5,6 +5,7 @@
 #' @importFrom dplyr arrange rename
 #' @importFrom lubridate format_ISO8601 now as_datetime
 #' @importFrom tibble tibble
+#' @importFrom glue glue
 #'
 #' @param latitude The latitude of the location, default stored in environment by find_loc function
 #' @param longitude The longitude of the location, default stored in environment by find_loc function
